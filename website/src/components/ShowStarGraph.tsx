@@ -86,7 +86,7 @@ export default function ShowStarGraph() {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-4 sm:p-6">
-              <div className="relative overflow-x-auto px-2 sm:px-0">
+              <div className="relative overflow-x-auto px-2 sm:px-0 scroll-smooth">
                 {(!imageLoaded && !imageError) ||
                   (isRefreshing && (
                     <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
