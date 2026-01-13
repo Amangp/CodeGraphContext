@@ -41,7 +41,7 @@ export default function ShowStarGraph() {
   }, []);
 
   //Refreshed the graph everyday
-   useEffect(() => {
+  useEffect(() => {
     const today = new Date().toDateString();
     const lastUpdated = localStorage.getItem("starHistoryLastUpdate");
 
@@ -53,7 +53,10 @@ export default function ShowStarGraph() {
 
   return (
     <>
-      <section className="px-4 bg-gradient-to-b from-secondary/10 to-background" data-aos="fade-up">
+      <section
+        className="px-4 bg-gradient-to-b from-secondary/10 to-background"
+        data-aos="fade-up"
+      >
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12" data-aos="fade-down">
             <div className="flex items-center justify-center gap-2 mb-4">
@@ -69,7 +72,10 @@ export default function ShowStarGraph() {
             </p>
           </div>
 
-          <Card className="w-full shadow-2xl border-border/50 bg-card/50 backdrop-blur-sm" data-aos="zoom-in-up">
+          <Card
+            className="w-full shadow-2xl border-border/50 bg-card/50 backdrop-blur-sm"
+            data-aos="zoom-in-up"
+          >
             <CardHeader className="text-center">
               <CardTitle className="flex items-center justify-center gap-2 text-2xl">
                 <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
@@ -79,8 +85,8 @@ export default function ShowStarGraph() {
                 </Badge>
               </CardTitle>
             </CardHeader>
-            <CardContent className="p-6">
-              <div className="relative">
+            <CardContent className="p-4 sm:p-6">
+              <div className="relative overflow-x-auto px-2 sm:px-0">
                 {(!imageLoaded && !imageError) ||
                   (isRefreshing && (
                     <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center">
@@ -140,7 +146,11 @@ export default function ShowStarGraph() {
               </div>
 
               {imageLoaded && !isRefreshing && (
-                <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up" data-aos-delay="200">
+                <div
+                  className="mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
                   <Button
                     variant="outline"
                     onClick={() => window.open(githubRepoUrl, "_blank")}
@@ -160,12 +170,10 @@ export default function ShowStarGraph() {
                     View Full History
                     <ExternalLink className="h-4 w-4" />
                   </Button>
-
                 </div>
               )}
             </CardContent>
           </Card>
-
         </div>
       </section>
       <br />
@@ -173,4 +181,3 @@ export default function ShowStarGraph() {
     </>
   );
 }
-
